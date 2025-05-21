@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Abhirup Bag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(270deg, #0f0c29, #413a94, #24243e);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+            background: rgba(51, 51, 51, 0.9);
+            color: #fbf8f8;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.5em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 5px;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #fff;
+            color: #08ccee;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: url('background1.jpg') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+            animation: headingFadeIn 2s ease-in-out, textGlow 1.5s infinite alternate;
+        }
+
+        @keyframes headingFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #3498db, 0 0 30px #3498db, 0 0 40px #3498db; }
+            100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #9b59b6, 0 0 40px #9b59b6, 0 0 50px #9b59b6; }
+        }
+
+        .about, .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .about img, .skills img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #768eb4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #1abc9c;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #1abc9c, 0 0 20px #1abc9c;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+            width: 100%;
+        }
+
+        .skill-card {
+            width: 160px;
+            height: 160px;
+            perspective: 1000px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .skill-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .skill-card > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            position: absolute;
+            transition: transform 0.6s;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #6e42f1, #bbbdf4);
+            color: white;
+            transform: rotateY(0deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .card-back {
+            background: #f1f1f1;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .download-btn {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, #6e42f1, #bbbdf4);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .about, .skills {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body> 
+        
+    <header>
+        
+        <h1>Abhirup Bag</h1>
+        <nav>
+            <ul>
+               <li><a href="#about" class="nav-button"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#projects" class="nav-button"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                <li><a href="#skills" class="nav-button"><i class="fas fa-lightbulb"></i> Skills</a></li>
+                <li><a href="#contact" class="nav-button"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h1>Hi, I'm Abhirup Bag</h1>
+            <p>Aspiring Software Developer | Creative Thinker</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about">
+                <img src="profile.jpg" alt="Profile Photo" class="profile-pic" />
+                <p>
+                    Hello! I'm Abhirup Bag, a college student with a passion for software development. I enjoy learning new technologies and creating solutions that make a difference. In my free time, I love drawing, painting, and exploring origami.
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="snake.png" alt="Project 1">
+                    <h3><a href="https://github.com/AbhiRik/Snake-Game">Project 1</a></h3>
+                    <h3><a href="https://abhirik.github.io/Snake-Game/">PLAY NOW !! (pc)</a></h3>
+                    <p>The Classic Snake Game made with a nostalgic feeling, Have fun !!!</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="calculator.png" alt="Project 2">
+                    <h3><a href="https://github.com/AbhiRik/codesoft_taskno.2">Project 2</a></h3>
+                    <p>Easy to use, a GUI-based WEB calculator.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="Brain.jpg" alt="Project 3">
+                    <h3><a href="https://github.com/AbhiRik/MindPal">Project 3</a></h3>
+                    <h3><a href="https://abhirik.github.io/MindPal/">USE IT !!</a></h3>
+                    <p>"MINDPAL" - A Student's mental well-being web app, to help them manage stress.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="contact.png" alt="Project 4">
+                    <h3><a href="https://github.com/AbhiRik/codesoft_taskno.5">Project 4</a></h3>
+                    <p>A contact book where you can add, update, and delete contacts in your list.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="atm.jpg" alt="Project 5">
+                    <h3><a href="https://github.com/AbhiRik/Brainwave_Matrix_Intern_1">Project 5</a></h3>
+                    <p>A Python-based ATM management system, where you can generate passwords to authenticate users.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="to_do.jpg" alt="Project 6">
+                    <h3><a href="https://github.com/AbhiRik/codsoft_taskno.1">Project 6</a></h3>
+                    <p>A Python GUI-based TO-DO List, where you can add, delete or modify tasks.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="dechain.png" alt="Group Project ">
+                    <h3><a>Group Project</a></h3>
+                    <p>DE Chain : A private Blockchain Based Digital Evidence Management System</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="project.jpg" alt="Project">
+                    <h3><a >More Projects adding soon...</a></h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                 <div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">Python</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">Basic scripting, OOP, and automation</div>
+</div>
+
+<div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">C / C++</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">Solid understanding of system-level programming</div>
+</div>
+
+<div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">Java</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">Object-oriented basics and core syntax</div>
+</div>
+
+<div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">Web Dev</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">HTML, CSS, JavaScript and SQL </div>
+</div>
+
+<div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">AI (Basics)</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">Intro to ML concepts and Python libs</div>
+</div>
+
+<div class="skill-card" onclick="this.classList.toggle('flipped')">
+    <div class="card-front">
+        <div class="title">Creative Design</div>
+        <div class="subtitle">(TAP!)</div>
+    </div>
+    <div class="card-back">Art, UI sketches, and visual creativity</div>
+</div>
+
+
+                </div>
+            </div>
+             <div class="download-btn-container">
+                <a href="Abhirup Bag_CV.pdf" class="download-btn" download>Download CV</a>
+              </div>
+        </section>
+        
+        
+        
+        
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p><center>If you'd like to get in touch, feel free to email me at <a href="mailto:abhirupbag1234@gmail.com">abhirupbag1234@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/abhirup-bag-734744282/">LinkedIn</a>.</center></p>
+        </section>
+        <script src="particle.js"></script>
+        <script>
+            document.getElementById('skillsCard').addEventListener('click', function () {
+                this.classList.toggle('flipped');
+            });
+        </script>
+        
+        
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Abhirup Bag. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
